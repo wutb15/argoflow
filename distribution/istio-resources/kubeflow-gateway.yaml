@@ -8,16 +8,14 @@ spec:
     istio: ingressgateway
   servers:
   - hosts:
-    - <<__subdomain_dashboard__>>.<<__domain__>>
+    - "*"
     port:
       name: http
       number: 80
       protocol: HTTP
     # Upgrade HTTP to HTTPS
-    tls:
-      httpsRedirect: true
   - hosts:
-    - <<__subdomain_dashboard__>>.<<__domain__>>
+    - kubeflow.my-cluster.my-domain.com
     port:
       name: https
       number: 443

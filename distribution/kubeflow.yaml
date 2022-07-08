@@ -6,11 +6,11 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: <<__git_repo.url__>>
-    targetRevision: <<__git_repo.target_revision__>>
+    repoURL: https://github.com/wutb15/argoflow.git
+    targetRevision: test-flow
     path: ./distribution
     kustomize:
-      version: v4.0.5
+      version: v4.5.5
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:

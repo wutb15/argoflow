@@ -65,7 +65,7 @@ Overview of the steps:
 ## Prerequisite
 
 - kubectl (latest)
-- kustomize 4.0.5
+- kustomize 4.5.5
 - docker (if using kind)
 - yq 4.x
 

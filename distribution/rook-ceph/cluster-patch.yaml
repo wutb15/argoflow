@@ -9,11 +9,12 @@ spec:
   resources:
     osd:
       limits:
-        cpu: "4"
-        memory: "6Gi"
-      requests:
         cpu: "2"
-        memory: "4Gi"
+        memory: "2Gi"
+      requests:
+        cpu: "1"
+        memory: "1Gi"
   storage:
     useAllDevices: false
-    deviceFilter: ^sd[b-c]
+    useAllNodes: true
+    deviceFilter: ^vd[b-c]
