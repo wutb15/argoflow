@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: internal-redirect
+spec:
+  hosts:
+    - 'kubeflow.my-cluster.my-domain.com'
+    - 'auth.my-cluster.my-domain.com'
+  location: MESH_INTERNAL
+  ports:
+    - name: http
+      number: 80
+      protocol: HTTP
+    - name: https
+      number: 443
+      protocol: HTTPS
+  resolution: DNS
+  endpoints:
+    - address: istio-ingressgateway.istio-system.svc.cluster.local

@@ -1,0 +1,16 @@
+# this is to trust root ca files when using cert-manager trust
+apiVersion: trust.cert-manager.io/v1alpha1
+kind: Bundle
+metadata:
+  name: my-cluster.my-domain.com
+spec:
+  sources:
+    - secret:
+        key: ca.crt
+        name: gateway-ca-secret
+    - secret:
+        key: ca.crt
+        name: kubeflow-ca-secret
+  target:
+    configMap:
+      key: "root-certs.pem"

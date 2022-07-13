@@ -7,16 +7,23 @@ spec:
   project: default
   source:
     repoURL: https://nvidia.github.io/gpu-operator
-    targetRevision: v1.8.1
+    targetRevision: v1.11.0
     chart: gpu-operator
     helm:
      parameters:
       - name : operator.defaultRuntime
-        value : containerd
+        value : docker
+      - name: driver.enabled
+        value: "false"
+      - name: toolkit.version
+        value: v1.10.0-centos7
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: gpu-operator
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+

@@ -8,10 +8,8 @@ spec:
   source:
     helm:
       parameters:
-      - name: image.repository
-        value: quay.io/oauth2-proxy/oauth2-proxy
       - name: image.tag
-        value: v7.1.3
+        value: v7.3.0
       - name: configSecret.create
         value: "false"
       - name: config.existingSecret
@@ -19,7 +17,9 @@ spec:
       - name: service.portNumber
         value: "4180"
       - name: extraArgs.provider
-        value: keycloak
+        value: keycloak-oidc
+      - name: extraArgs.oidc-issuer-url
+        value: https://auth.my-cluster.my-domain.com/realms/kubeflow
       - name: extraArgs.set-xauthrequest
         value: "true"
       - name: extraArgs.cookie-secure
@@ -50,9 +50,13 @@ spec:
         value: "https://auth.my-cluster.my-domain.com/auth/realms/kubeflow/protocol/openid-connect/userinfo"
       - name: extraArgs.validate-url
         value: "https://auth.my-cluster.my-domain.com/auth/realms/kubeflow/protocol/openid-connect/userinfo"
-      - name: extraArgs.scope
-        value: email
-      - name: extraArgs.scope
-        value: profile
+      - name: extraVolumes[0].name
+        value: ca-bundle-cert
+      - name: extraVolumes[0].configMap.name
+        value: my-cluster.my-domain.com
+      - name: extraVolumeMounts[0].mountPath
+        value: /etc/ssl/certs/
+      - name: extraVolumeMounts[0].name
+        value: ca-bundle-cert
       - name: extraArgs.scope
         value: openid

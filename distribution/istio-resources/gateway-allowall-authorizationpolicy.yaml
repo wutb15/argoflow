@@ -1,0 +1,15 @@
+# allow all traffic to ingress gateway for dev phase
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: kubeflow-allow-gateway
+  namespace: istio-system
+spec:
+  action: ALLOW
+  selector:
+    # Same as the istio-ingressgateway Service selector
+    matchLabels:
+      app: istio-ingressgateway
+      istio: ingressgateway
+  rules:
+  - {}

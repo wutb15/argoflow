@@ -10,7 +10,7 @@ resources:
 - argocd-applications/istio-operator.yaml
 - argocd-applications/istio.yaml    
 - argocd-applications/istio-resources.yaml
-- argocd-applications/knative.yaml
+#- argocd-applications/knative.yaml
 
 # Pick *one* of the following applications
 - argocd-applications/argocd.yaml
@@ -23,6 +23,9 @@ resources:
 # Pick *one* of the following
 - argocd-applications/certificates.yaml
 # - argocd-applications/certificates-imported.yaml
+
+# Certificate trust
+- argocd-applications/cert-manager-trust.yaml
 
 # Pick *one* of the following applications:  
 # - argocd-applications/oidc-auth-on-cluster-dex.yaml
