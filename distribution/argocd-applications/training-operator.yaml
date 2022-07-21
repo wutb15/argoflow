@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: training-operator
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/wutb15/argoflow.git
+    targetRevision: test-flow
+    path: distribution/kubeflow/operators/training
+    kustomize:
+      version: v4.5.5
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
