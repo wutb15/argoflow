@@ -1,0 +1,19 @@
+# Patch resource request in training operator
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: training-operator
+  labels:
+    control-plane: kubeflow-training-operator
+spec:
+  template:
+    spec:
+      containers:
+        - name: training-operator
+          resources:
+            requests:
+                cpu: 100m
+                memory: 300Mi
+            limits:
+                cpu: 100m
+                memory: 500Mi
