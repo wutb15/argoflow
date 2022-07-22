@@ -2,12 +2,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- github.com/kubeflow/pipelines/manifests/kustomize/env/platform-agnostic-multi-user-pns?ref=1.8.2 # tag=1.6.0
+- github.com/kubeflow/pipelines/manifests/kustomize/env/platform-agnostic-multi-user-pns?ref=1.8.2 # tag=1.8.2
 
-#images:
-#- name: gcr.io/tfx-oss-public/ml_metadata_store_server
-#  newName: gcr.io/tfx-oss-public/ml_metadata_store_server
-#  newTag: 0.30.0
+images:
+- name: gcr.io/tfx-oss-public/ml_metadata_store_server
+  newName: gcr.io/tfx-oss-public/ml_metadata_store_server
+  newTag: 0.30.0
   # digest: sha256:01691247116fe048e0761ae8033efaad3ddd82438d0198f2235afb37c1757d48
 #- name: gcr.io/ml-pipeline/metadata-writer
 #  newName: gcr.io/ml-pipeline/metadata-writer
