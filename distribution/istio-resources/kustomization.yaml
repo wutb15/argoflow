@@ -7,6 +7,6 @@ resources:
 - gateway-authorizationpolicy.yaml
 - kubeflow-cluster-roles.yaml
 - kubeflow-gateway.yaml
-- gateway-allowall-authorizationpolicy.yaml
+#- gateway-allowall-authorizationpolicy.yaml
 
 # - monitoring/
