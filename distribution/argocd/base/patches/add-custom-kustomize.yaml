@@ -16,7 +16,7 @@ spec:
         command: [sh, -c]
         args:
         - wget -qO- https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.5/kustomize_v4.5.5_linux_amd64.tar.gz | tar -xvzf - &&
-          mv kustomize /custom-tools/kustomize_4_0_5
+          mv kustomize /custom-tools/kustomize_4_5_5
         volumeMounts:
         - mountPath: /custom-tools
           name: custom-tools
