@@ -52,3 +52,17 @@ spec:
           value: 172.18.0.0/16,fc00:f853:ccd:e793::/64,localhost,127.0.0.0/8,::1,10.96.0.0/16,10.244.0.0/16,kind-control-plane,kind-control-plane2,kind-control-plane3,kind-worker,kind-worker2,kind-worker3,kind-external-load-balancer,.svc,.svc.cluster,.svc.cluster.local
         - name: HTTP_PROXY
           value: http://192.168.1.3:7890/
+      - name: argocd-server
+        env:
+        - name: http_proxy
+          value: http://192.168.1.3:7890/
+        - name: HTTPS_PROXY
+          value: http://192.168.1.3:7890/
+        - name: https_proxy
+          value: http://192.168.1.3:7890/
+        - name: NO_PROXY
+          value: 172.18.0.0/16,fc00:f853:ccd:e793::/64,localhost,127.0.0.0/8,::1,10.96.0.0/16,10.244.0.0/16,kind-control-plane,kind-control-plane2,kind-control-plane3,kind-worker,kind-worker2,kind-worker3,kind-external-load-balancer,.svc,.svc.cluster,.svc.cluster.local
+        - name: no_proxy
+          value: 172.18.0.0/16,fc00:f853:ccd:e793::/64,localhost,127.0.0.0/8,::1,10.96.0.0/16,10.244.0.0/16,kind-control-plane,kind-control-plane2,kind-control-plane3,kind-worker,kind-worker2,kind-worker3,kind-external-load-balancer,.svc,.svc.cluster,.svc.cluster.local
+        - name: HTTP_PROXY
+          value: http://192.168.1.3:7890/
